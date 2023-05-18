@@ -1,0 +1,14 @@
+1. take the original query and create a complex goal from it (ask gpt to create a very full description of the goal, with any details that might be relevant)
+2. take the new goal, and then from that goal, think of what information is needed, in the form of a list, be as descriptive as possible
+3. return a json of information to google search query that is likely to get that information and what we are trying to find in question format:
+Example: 
+{
+    "information": "information we are trying to get, e.g. top 10 polo brands based in SF",
+    "question": "question that asks what we are trying to find"
+    "serp_query": "serp query for that question"
+}
+3.5. make the serp queries
+4. for each result, return a summary of all the information relevant to the subquery
+5. combine the summaries into one blob
+6. answer the original question based on that blob
+7 (optional). Based on this answer and the new goal, think of what information is still needed, and repeat steps 3-6 (needs some kind of recursive depth. Good start is 2)
